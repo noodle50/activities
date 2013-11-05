@@ -21,10 +21,11 @@ class Activities extends Eloquent {
 		$user = Auth::user();
 		
 		$entry = new static;
-		$entry->user_id = (int)$user->id;
+		$entry->user_id = (isset($user->id) ? $user->id : false);
 		$entry->ip_address = Request::getClientIp();
+		$entry->data = (isset($data['data']) ? json_encode($data['data']) : null);
 		
-		foreach (array('group', 'type', 'action', 'data') as $field) {
+		foreach (array('group', 'type', 'action') as $field) {
 			$entry->$field = (isset($data[$field]) ? $data[$field] : null);
 		}
 

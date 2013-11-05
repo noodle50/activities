@@ -12,7 +12,7 @@ class CreateUsersActivities extends Migration {
 			$table->string('group', 32);
 			$table->string('type', 32);
 			$table->string('action', 64);
-			$table->text('data');
+			$table->text('data')->nullable()->default(null);
 			$table->string('ip_address', 64);
 			$table->timestamps();
 			$table->foreign('user_id')->references('id')->on('users');
