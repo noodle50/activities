@@ -1,5 +1,5 @@
 {
-    "name": "Noodle50/activities",
+    "name": "noodle50/activities",
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "4.0.x"
